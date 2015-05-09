@@ -19,3 +19,12 @@ func TestBruteMaxValue(t *testing.T) {
 		}
 	}
 }
+
+func TestMemoizedMaxValue(t *testing.T) {
+	for _, test := range testCases {
+		value := MemoizedMaxValue(test.size, prices)
+		if value != test.best {
+			t.Fatalf("got %d, expected %d", value, test.best)
+		}
+	}
+}
