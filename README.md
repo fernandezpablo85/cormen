@@ -1,4 +1,4 @@
-# Introduction to Algorithms (Cormen et al) solutions in Go.
+# Introduction to Algorithms (Cormen et al) in Go.
 
 [![License](https://img.shields.io/apm/l/vim-mode.svg)](http://github.com/fernandezpablo85/cormen/blob/master/LICENSE.txt)
 
