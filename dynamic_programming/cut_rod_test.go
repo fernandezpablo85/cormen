@@ -28,3 +28,12 @@ func TestMemoizedMaxValue(t *testing.T) {
 		}
 	}
 }
+
+func TestBottomUpMaxValue(t *testing.T) {
+	for _, test := range testCases {
+		value := BottomUpMaxValue(test.size, prices)
+		if value != test.best {
+			t.Fatalf("got %d, expected %d", value, test.best)
+		}
+	}
+}
