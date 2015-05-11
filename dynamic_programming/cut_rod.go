@@ -35,17 +35,21 @@ func memoizedMaxValue(size int, prices []int, memo []int) int {
 	}
 }
 
-func BottomUpMaxValue(size int, prices []int) int {
+func BottomUpMaxValue(size int, prices []int) (int, []int) {
 	rs := make([]int, len(prices))
+	sl := make([]int, len(prices))
 	rs[0] = 0
 	for i := 1; i <= size; i++ {
 		value := math.MinInt64
 		for j := 1; j <= i; j++ {
-			value = max(value, prices[j]+rs[i-j])
+			if value < prices[j]+rs[i-j] {
+				value = prices[j] + rs[i-j]
+				sl[i] = j
+			}
 		}
 		rs[i] = value
 	}
-	return rs[size]
+	return rs[size], sl
 }
 
 func max(a int, b int) int {

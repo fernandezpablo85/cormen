@@ -31,9 +31,15 @@ func TestMemoizedMaxValue(t *testing.T) {
 
 func TestBottomUpMaxValue(t *testing.T) {
 	for _, test := range testCases {
-		value := BottomUpMaxValue(test.size, prices)
+		value, solution := BottomUpMaxValue(test.size, prices)
 		if value != test.best {
 			t.Fatalf("got %d, expected %d", value, test.best)
+		} else {
+			t.Logf("solution for %d is:", test.size)
+			for i := test.size; i > 0; {
+				t.Logf("%d", solution[i])
+				i = i - solution[i]
+			}
 		}
 	}
 }
